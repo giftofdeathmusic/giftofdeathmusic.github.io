@@ -268,6 +268,9 @@ main {
   bottom: 0;
   left: 0;
   position: fixed;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
 }
 
 /* -- Windows -- */
