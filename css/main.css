@@ -1,0 +1,607 @@
+/* ------------ GLOBAL ------------ */
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* -- Main Text -- */
+html,
+body,
+a {
+  color: #fff;
+  font-family: "Martian Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 0.82915rem;
+  line-height: 1;
+  font-variation-settings: "wght" 260, "wdth" 100;
+}
+
+.text-black {
+  color: #000;
+  font-variation-settings: "wght" 310, "wdth" 100;
+}
+
+/* -- input -- */
+label,
+input,
+button {
+  font-size: 0.82915rem;
+  letter-spacing: 0px;
+  font-family: "Martian Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+input {
+  padding: 4px;
+  max-width: 100%;
+  line-height: 1.5;
+  border-radius: 0;
+  border: 1px solid #000;
+  box-shadow: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+button {
+  border-radius: 0;
+  padding: 3px 6px;
+  outline: none;
+  border: solid 1px #000;
+}
+
+button:active {
+  background-color: #ddd;
+}
+
+/* -- BG Color + Noise -- */
+html {
+  background-color: #020202;
+}
+
+#bg-video-noise-container {
+  z-index: -99998;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#bg-video-noise {
+  width: 300%;
+  height: 300%;
+  max-width: none;
+  background-image: url(/images/grain.png);
+  background-position: 50%;
+  background-size: 7%;
+  position: absolute;
+  opacity: 0.05;
+  top: -150%;
+  bottom: 0%;
+  left: -150%;
+  right: 0%;
+  animation: 2s steps(1) infinite noise;
+}
+
+@keyframes noise {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  10% {
+    background-position: -5% -10%;
+  }
+  20% {
+    background-position: -15% 5%;
+  }
+  30% {
+    background-position: 7% -25%;
+  }
+  40% {
+    background-position: 20% 25%;
+  }
+  50% {
+    background-position: -25% 10%;
+  }
+  60% {
+    background-position: 15% 5%;
+  }
+  70% {
+    background-position: 0% 15%;
+  }
+  80% {
+    background-position: 25% 35%;
+  }
+  90% {
+    background-position: -10% 10%;
+  }
+}
+#bg-video-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #020202;
+  z-index: -99999;
+  cursor: none;
+}
+
+#wallpaper-video {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  vertical-align: baseline;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+/* -- Header -- */
+header {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+#header-blank, header li, header aside {
+  border-bottom: 1px solid #fff;
+}
+
+#header-blank {
+  height: 100%;
+  flex-grow: 1;
+}
+
+header ul,
+header aside {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 20px;
+}
+
+header li {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #fff;
+  padding: 0 0.35em;
+  margin: 0;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.header-logo {
+  height: 20px;
+  width: auto;
+  margin: 0 4px 0 5px;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+.dropdown-arrow {
+  margin: 0 5px 0 0px;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+.header-item {
+  align-content: center;
+  height: 20px;
+  border-left: 1px solid #fff;
+  padding: 0 8px;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+/* -- Dropdown -- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#dropdown-header {
+  z-index: 999999;
+}
+
+.dropdown-content span {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+.dropdown-content span:hover, .dropdown-content span:active {
+  background-color: #e2e2e2;
+}
+
+/* -- Main Area -- */
+main {
+  top: 20px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+}
+
+/* -- Windows -- */
+.window {
+  display: none;
+  position: absolute;
+  background-color: #efefef;
+  border: 1px solid #000;
+  max-width: calc(100% - 40px);
+  transform: translate(-50%, -50%);
+  z-index: -99995;
+}
+
+.window img {
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+.window-drag-area {
+  height: 21px;
+  padding: 5px;
+  align-content: center;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+  border-bottom: solid 1px #000;
+  text-wrap: nowrap;
+}
+
+.window-close {
+  cursor: pointer;
+}
+
+.window-drag-decoration {
+  width: 100%;
+  margin: 0 12px 0 10px;
+  background-image: url(/images/ui/drag-area.png);
+}
+
+.full-window {
+  cursor: move;
+}
+
+/* ------------- Individual Window CSS ------------- */
+/* -- Welcome Window -- */
+#window-welcome {
+  width: 400px;
+  top: 45%;
+  left: 50%;
+  white-space: nowrap;
+}
+
+#welcome-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#welcome-txt {
+  padding: 10px 8px;
+}
+
+/* -- Wallpapers Window -- */
+#window-wallpapers {
+  width: 240px;
+  top: 18%;
+  left: 27%;
+}
+
+#window-wallpapers-content {
+  margin: 10px 10px 32px 10px;
+}
+
+.wallpaper-preview {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.wallpaper-preview img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.wallpaper-list {
+  display: grid;
+  list-style: none;
+}
+
+.wallpaper-list li {
+  margin: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+  cursor: pointer;
+}
+
+.window-bottom-bar {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.apply-wallpaper-btn {
+  float: right;
+  cursor: pointer;
+}
+
+/* -- Cheat Code Window -- */
+#window-cheat-code {
+  width: 300px;
+}
+
+#window-cheat-code-content {
+  margin: 20px 20px 16px;
+  text-align: right;
+}
+
+#cheat-code-entry-input {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+/* -- Members Window -- */
+#window-members {
+  position: absolute;
+  flex-flow: column;
+  top: 45%;
+  left: 50%;
+  white-space: nowrap;
+  width: 370px;
+}
+
+#window-members-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0 16px 0;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+.members-row {
+  width: 100%;
+  text-align: center;
+}
+
+.members-group {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.members-group img {
+  width: 100%;
+  height: 100%;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.members-group span {
+  padding: 4px 0;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+/* -- GOD Album Window -- */
+#window-god {
+  width: 380px;
+}
+
+#window-god-content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  align-items: center;
+  aspect-ratio: 1.5;
+  background-image: url(/images/ui/god_cover_blurred.png);
+  background-size: cover;
+  background-position: bottom;
+  color: #fff;
+  padding: 10px;
+}
+
+.window-god-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.window-god-group img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+.link-spanner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* edit: fixes overlap error in IE7/8, 
+     make sure you have an empty gif 
+  background-image: url('empty.gif');*/
+}
+
+/* -- GOD Album Window -- */
+#window-god {
+  width: 380px;
+}
+
+#window-god-content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  align-items: center;
+  aspect-ratio: 1.5;
+  background-image: url(/images/ui/god_cover_blurred.png);
+  background-size: cover;
+  background-position: bottom;
+  color: #fff;
+  padding: 10px;
+}
+
+.window-god-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.window-god-group img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+.link-spanner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* edit: fixes overlap error in IE7/8, 
+     make sure you have an empty gif 
+  background-image: url('empty.gif');*/
+}
+
+/* -- About Window -- */
+#window-about {
+  width: 200px;
+}
+
+#window-about-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+#window-about-content span {
+  padding: 10px 0;
+  line-height: 2;
+}
+
+/* -- Desktop Icons -- */
+#desktop-icons {
+  position: fixed;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: -99997;
+}
+
+.desktop-icon-group {
+  margin: 8px;
+  max-width: 64px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.desktop-icon-group img, .desktop-icon-group span {
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+
+.desktop-icon-selected span {
+  background-color: #3a2aff;
+}
+
+/* -- Override Classes -- */
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.mix-blend-mode-difference {
+  mix-blend-mode: difference;
+}
+
+.mix-blend-mode-normal {
+  mix-blend-mode: normal;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>G.O.D. MUSIC</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap">
+	<script type="text/javascript" src="/js/moment.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div id="bg-video-noise-container">
+		<div id="bg-video-noise"></div>
+	</div>
+	<div id="bg-video-container">
+		<video id="wallpaper-video" disablePictureInPicture playsinline autoplay loop muted preload="metadata"
+			crossorigin="anonymous">
+			<source type="video/mp4" src="/videos/street.mp4">
+		</video>
+	</div>
+	<header>
+		<ul class="dropdown">
+			<li id="header-li" class="dropdown-btn mix-blend-mode-difference" onclick="openDropdownHeader()">
+				<img src="/images/ui/header_logo.png" alt="GOD logo" class="header-logo" draggable="false">
+				<img src="/images/ui/arrow.png" alt="dropdown arrow" class="dropdown-arrow" draggable="false">
+			</li>
+			<div id="dropdown-header" class="dropdown-content text-black">
+				<span onclick="openWindowWallpapers()">Wallpapers</span>
+				<span onclick="openWindowCheatCode()">Cheat Code Entry</span>
+				<span onclick="openWindowAbout()">About</span>
+			</div>
+		</ul>
+		<div id="header-blank" class="mix-blend-mode-difference"></div>
+		<aside id="header-aside" class="mix-blend-mode-difference">
+			<span class="header-item" id="date">Tues Jun 6 2006</span>
+			<span class="header-item" id="time">6:66 AM</span>
+		</aside>
+	</header>
+
+	<main id="main">
+
+		<div class="window text-black display-block" id="window-welcome">
+			<div class="window-drag-area">
+				<div class="window-close">[X]</div>
+				<div class="window-drag-decoration"></div>
+				<span>Welcome!</span>
+			</div>
+			<img id="welcome-img" src="/images/window-images/welcome.jpg" draggable="false">
+			<div id="welcome-txt">it's nice having you here :)</div>
+		</div>
+
+		<div class="window text-black" id="window-wallpapers">
+			<div class="window-drag-area">
+				<div class="window-close">[X]</div>
+				<div class="window-drag-decoration"></div>
+				<span>Wallpapers</span>
+			</div>
+			<div id="window-wallpapers-content">
+				<div class="wallpaper-preview">
+					<img id="wallpaper-preview-img" src="/images/wallpaper-preview/street.jpg">
+				</div>
+				<ul class="wallpaper-list">
+					<li onmousedown="changeWallpaperPreviewStreet()">Street</li>
+					<li onmousedown="changeWallpaperPreviewAmbient()">Ambient</li>
+					<li onmousedown="changeWallpaperPreviewJellyfish()">Jellyfish</li>
+					<li onmousedown="changeWallpaperPreviewBokeh()">Bokeh</li>
+					<li onmousedown="changeWallpaperPreviewBody()">Body</li>
+					<li onmousedown="changeWallpaperPreviewLovers()">Lovers</li>
+				</ul>
+				<div class="window-bottom-bar">
+					<button class="apply-wallpaper-btn" onmousedown="applyWallpaperChange()">Apply</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="window text-black" id="window-cheat-code">
+			<div class="window-drag-area">
+				<div class="window-close">[X]</div>
+				<div class="window-drag-decoration"></div>
+				<span>Cheat Code Entry</span>
+			</div>
+			<div id="window-cheat-code-content">
+				<input type="text" id="cheat-code-entry-input" autocomplete="off">
+				<button onclick="cheatCodeEntered()">Done</button>
+			</div>
+		</div>
+
+		<div class="window text-black" id="window-members">
+			<div class="window-drag-area">
+				<div class="window-close">[X]</div>
+				<div class="window-drag-decoration"></div>
+				<span>G.O.D. Members</span>
+			</div>
+
+			<div id="window-members-content">
+
+				<div class="members-row">
+
+					<div class="members-group" onmousedown="godOpenAppleMusic()">
+						<img src="/images/member-icons/leo.png" draggable="false">
+						<span>_leo_</span>
+						<a href="https://music.apple.com/us/album/g-o-d/1752718743" target="_blank">
+							<span class="link-spanner"></span>
+						</a>
+					</div>
+
+					<div class="members-group" onmousedown="godOpenAppleMusic()">
+						<img src="/images/member-icons/mem-pyro.png" draggable="false">
+						<span>tmac</span>
+						<a href="https://music.apple.com/us/album/g-o-d/1752718743" target="_blank">
+							<span class="link-spanner"></span>
+						</a>
+					</div>
+
+				</div>
+
+				<div class="members-row">
+
+					<div class="members-group" onmousedown="godOpenAppleMusic()">
+						<img src="/images/member-icons/mem-pyro.png" draggable="false">
+						<span>$rch</span>
+						<a href="https://music.apple.com/us/album/g-o-d/1752718743" target="_blank">
+							<span class="link-spanner"></span>
+						</a>
+					</div>
+
+					<div class="members-group" onmousedown="godOpenAppleMusic()">
+						<img src="/images/member-icons/mem-pyro.png" draggable="false">
+						<span>frankk</span>
+						<a href="https://music.apple.com/us/album/g-o-d/1752718743" target="_blank">
+							<span class="link-spanner"></span>
+						</a>
+					</div>
+
+					<div class="members-group" onmousedown="godOpenAppleMusic()">
+						<img src="/images/member-icons/mem-pyro.png" draggable="false">
+						<span>adel</span>
+						<a href="https://music.apple.com/us/album/g-o-d/1752718743" target="_blank">
+							<span class="link-spanner"></span>
+						</a>
+					</div>
+				</div>
+				
+				<div class="members-row">
+
+					<div class="members-group" onmousedown="godOpenAppleMusic()">
+						<img src="/images/member-icons/pyro.png" draggable="false">
+						<span>jay pyro</span>
+						<a href="https://music.apple.com/us/album/g-o-d/1752718743" target="_blank">
+							<span class="link-spanner"></span>
+						</a>
+					</div>
+
+					<div class="members-group" onmousedown="godOpenAppleMusic()">
+						<img src="/images/member-icons/steve.png" draggable="false">
+						<span>steve</span>
+						<a href="https://music.apple.com/us/album/g-o-d/1752718743" target="_blank">
+							<span class="link-spanner"></span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="window text-black" id="window-god">
+			<div class="window-drag-area">
+				<div class="window-close">[X]</div>
+				<div class="window-drag-decoration"></div>
+				<span>G.O.D. Album</span>
+			</div>
+			<div id="window-god-content">
+				<div class="window-god-group" onmousedown="godOpenAppleMusic()">
+					<img src="/images/god-link-icons/apple-music.png" draggable="false">
+					<span>Apple Music</span>
+					<a href="https://music.apple.com/us/album/g-o-d/1752718743" target="_blank">
+						<span class="link-spanner"></span>
+					</a>
+				</div>
+				<div class="window-god-group" onmousedown="godOpenSpotify()">
+					<img src="/images/god-link-icons/spotify.png" draggable="false">
+					<span>Spotify</span>
+					<a href="https://open.spotify.com/album/5kYm9gX83VyWzOnNwic9Ju?si=eSb6f3qwS2WiGHI0tWOJ8Q" target="_blank">
+						<span class="link-spanner"></span>
+					</a>
+				</div>
+				<div class="window-god-group" onmousedown="godOpenAmazonMusic()">
+					<img src="/images/god-link-icons/amazon-music.png" draggable="false">
+					<span>Amazon Music</span>
+					<a href="https://amazon.com/music/player/albums/B0D79HXT2V?marketplaceId=ATVPDKIKX0DER&musicTerritory=US" target="_blank">
+						<span class="link-spanner"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="window text-black" id="window-about">
+			<div class="window-drag-area">
+				<div class="window-close">[X]</div>
+				<div class="window-drag-decoration"></div>
+				<span>About</span>
+			</div>
+			<div id="window-about-content">
+				<span>ABOUT G.O.D.</span>
+				<span>"Gift of Death"</span>
+				<span>A group consisting of 7 members from Colorado.</span>
+				<span>idk man.</span>
+			</div>
+		</div>
+
+
+
+
+		<div id="desktop-icons">
+			<div class="desktop-icon-group" id="icon-welcome" onclick="selectIconWelcome()">
+				<img src="/images/desktop-icons/welcome.png" draggable="false">
+				<span class="desktop-icon-text">Welcome Screen</span>
+			</div>
+			<div class="desktop-icon-group" id="icon-god" onclick="selectIconGOD()">
+				<img src="/images/desktop-icons/god-cover.png" draggable="false">
+				<span class="desktop-icon-text">G.O.D.</span>
+			</div>
+			<div class="desktop-icon-group" id="icon-members" onclick="selectIconMembers()">
+				<img src="/images/desktop-icons/members.png" draggable="false">
+				<span class="desktop-icon-text">Members</span>
+			</div>
+		</div>
+	</main>
+	<script type="text/javascript" src="/js/os.js"></script>
+</body>
+</html>
