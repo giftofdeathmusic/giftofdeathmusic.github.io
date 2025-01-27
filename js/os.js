@@ -154,6 +154,12 @@ function makeDraggable(windowElement) {
 
 	//Hide Window if [X] clicked/tapped
 	windowClose.onmousedown = function () { hideWindow(windowClose) };
+	windowClose.ontouchstart = function () { hideWindow(windowClose) };
+	function hideWindow() {
+		console.log("close touched");
+		windowClose.parentElement.parentElement.classList.toggle("display-block");
+	}
+	windowClose.ontouchstart = function () { hideWindow(windowClose) };
 	function hideWindow() {
 		console.log("close touched");
 		windowClose.parentElement.parentElement.classList.toggle("display-block");
