@@ -91,7 +91,7 @@ function openWindowAbout() {
 		windowAbout.classList.toggle("display-block");
 	}
 	document.getElementById("dropdown-header").classList.toggle("display-inline-block");
-	windowCheatCode.parentNode.appendChild(windowAbout);
+	windowAbout.parentNode.appendChild(windowAbout);
 }
 
 
