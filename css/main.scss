@@ -1,4 +1,18 @@
 /* ------------ GLOBAL ------------ */
+:root {
+	--surface-white: #efefef;
+	--surface-shadow: #d9d9d9;
+	--text-white: #efefef;
+	--text-black: #020202;
+	--pure-white: #fff;
+	--pure-black: #000;
+	--background-black: #020202;
+  }
+
+
+
+
+/* ------------ GLOBAL ------------ */
 
 *,
 html,
@@ -13,10 +27,12 @@ html,
 body {
 	width: 100%;
 	height: 100%;
-	overflow: hidden
+	overflow: hidden;
 }
 
-
+html {
+	background-color: var(--background-black);
+}
 
 
 /* -- Main Text -- */
@@ -24,7 +40,7 @@ body {
 html,
 body,
 a {
-	color: #fff;
+	color: var(--text-white);
 	font-family: "Martian Mono", monospace;
 	font-optical-sizing: auto;
 	font-style: normal;
@@ -38,7 +54,7 @@ a {
 }
 
 .text-black {
-	color: #000;
+	color: var(--text-black);
 	font-variation-settings:
 		// <weight>: Use a value from 100 to 800
 		// <width>: Use a value from 75 to 112.5
@@ -50,26 +66,30 @@ a {
 
 
 
-/* -- input -- */
+/* -- input/button -- */
 
-label,
 input,
 button
 {
-	font-size: 0.82915rem;
+	padding: 4px 6px;
+	border-radius: 0;
+	border: 1px solid var(--text-black);
+	background-color: var(--surface-white);
+	color: var(--text-black);
 	letter-spacing: 0px;
 	font-family: "Martian Mono", monospace;
 	font-optical-sizing: auto;
 	font-style: normal;
-	background-color: #fff;
+	font-size: 0.82915rem;
+	font-variation-settings:
+		// <weight>: Use a value from 100 to 800
+		// <width>: Use a value from 75 to 112.5
+		"wght" 310,
+		"wdth" 100;
 }
 
 input {
-	padding: 4px;
-	max-width: 100%;
 	line-height: 1.5;
-	border-radius: 0;
-	border: 1px solid #000;
 	box-shadow: none;
 }
 
@@ -77,37 +97,66 @@ input:focus {
 	outline: none;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-}
 
 button {
-	border-radius: 0;
-	padding: 3px 6px;
+	line-height: 1.1;
 	outline: none;
-	border: solid 1px #000;
 }
 
 button:active {
-	background-color: #ddd;
+	background-color: var(--surface-shadow);
 }
 
 
 
 
-/* -- BG Color + Noise -- */
+/* -- Dropdown -- */
 
-html {
-	background-color: #020202;
+.dropdown {
+	position: relative;
+	display: inline-block;
 }
 
-#bg-video-noise-container {
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: var(--surface-white);
+	min-width: 160px;
+	overflow: auto;
+	border-left: 1px solid var(--pure-black);
+	border-right: 1px solid var(--pure-black);
+	border-bottom: 1px solid var(--pure-black);
+}
+
+.dropdown-content span {
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+	-webkit-user-select: none; /* Safari */
+	-ms-user-select: none; /* IE 10 and IE 11 */
+	user-select: none; /* Standard syntax */
+}
+
+.dropdown-content span:hover, .dropdown-content span:active {
+	background-color: var(--surface-shadow);
+}
+
+#header-dropdown-content {
+	z-index: 999999;
+}
+
+
+
+
+/* -- Wallpaper/Noise -- */
+
+#wallpaper-noise-container {
 	z-index: -99998;
+	position: fixed;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	display: flex;
-	position: fixed;
 	top: 0%;
 	bottom: 0%;
 	left: 0%;
@@ -116,14 +165,14 @@ html {
 	pointer-events: none;
 }
 
-#bg-video-noise {
+#wallpaper-noise {
+	position: absolute;
 	width: 300%;
 	height: 300%;
 	max-width: none;
 	background-image: url(/images/grain.png);
 	background-position: 50%;
 	background-size: 7%;
-	position: absolute;
 	opacity: 0.05;
 	top: -150%;
 	bottom: 0%;
@@ -166,13 +215,13 @@ html {
 	}
 }
 
-#bg-video-container {
+#wallpaper-video-container {
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: #020202;
+	background-color: var(--background-black);
 	z-index: -99999;
 	cursor: none;
 }
@@ -190,51 +239,39 @@ html {
 
 /* -- Header -- */
 
-header {
+#header {
 	height: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	position: relative;
 	-webkit-user-select: none; /* Safari */
 	-ms-user-select: none; /* IE 10 and IE 11 */
 	user-select: none; /* Standard syntax */
 	
 }
 
-#header-blank, header li, header aside {
-	border-bottom: 1px solid #fff;
-	transform: translate3d(0,0,0); 
+.header-border-bottom {
+	border-bottom: 1px solid var(--pure-white);
+	transform: translate3d(0,0,0);
 }
 
-#header-blank {
-	height: 100%;
-	flex-grow: 1;
+.header-border-right {
+	border-right: 1px solid var(--pure-white);
 }
 
-header ul,
-header aside {
-	display: flex;
-	align-items: center;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	height: 20px;
-}
+/* -- Header Dropdown -- */
 
-header li {
+#header-dropdown-btn {
 	height: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-right: 1px solid #fff;
-	padding: 0 0.35em;
 	margin: 0;
 	font-size: 0;
 	cursor: pointer;
 }
 
-.header-logo {
+.header-dropdown-btn-logo {
 	height: 20px;
 	width: auto;
 	margin: 0 4px 0 5px;
@@ -243,58 +280,34 @@ header li {
 	user-select: none; /* Standard syntax */
 }
 
-.dropdown-arrow {
-	margin: 0 5px 0 0px;
+.header-dropdown-btn-arrow {
+	margin: 0 5px 0 0;
 	-webkit-user-select: none; /* Safari */
 	-ms-user-select: none; /* IE 10 and IE 11 */
 	user-select: none; /* Standard syntax */
 }
 
-.header-item {
+#header-whitespace {
+	height: 100%;
+	flex-grow: 1;
+}
+
+#header-timedate {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 20px;
+}
+
+.header-timedate-item {
 	align-content: center;
 	height: 20px;
-	border-left: 1px solid #fff;
 	padding: 0 8px;
 	-webkit-user-select: none; /* Safari */
 	-ms-user-select: none; /* IE 10 and IE 11 */
 	user-select: none; /* Standard syntax */
-}
-
-
-
-
-/* -- Dropdown -- */
-
-.dropdown {
-	position: relative;
-	display: inline-block;
-}
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 160px;
-	overflow: auto;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
-
-#dropdown-header {
-	z-index: 999999;
-}
-
-.dropdown-content span {
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	cursor: pointer;
-	-webkit-user-select: none; /* Safari */
-	-ms-user-select: none; /* IE 10 and IE 11 */
-	user-select: none; /* Standard syntax */
-}
-
-.dropdown-content span:hover, .dropdown-content span:active {
-	background-color: #e2e2e2;
 }
 
 

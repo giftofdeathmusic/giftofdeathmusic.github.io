@@ -32,7 +32,7 @@ function setDate() {
 
 // HEADER DROPDOWN
 function openDropdownHeader() {
-	document.getElementById("dropdown-header").classList.toggle("display-inline-block");
+	document.getElementById("header-dropdown-content").classList.toggle("display-inline-block");
 }
 
 
@@ -41,7 +41,7 @@ function openDropdownHeader() {
 // Close the header dropdown if the user clicks outside of it
 window.ontouchstart = function (event) {
 	if (!event.target.matches('.dropdown-btn') && !event.target.matches('.dropdown-btn img') && !event.target.matches('.dropdown-content span')) {
-		var dropdownHeader = document.getElementById("dropdown-header");
+		var dropdownHeader = document.getElementById("header-dropdown-content");
 		if (dropdownHeader.classList.contains('display-inline-block')) {
 			dropdownHeader.classList.remove('display-inline-block');
 		}
@@ -50,7 +50,7 @@ window.ontouchstart = function (event) {
 
 window.onclick = function (event) {
 	if (!event.target.matches('.dropdown-btn') && !event.target.matches('.dropdown-btn img') && !event.target.matches('.dropdown-content span')) {
-		var dropdownHeader = document.getElementById("dropdown-header");
+		var dropdownHeader = document.getElementById("header-dropdown-content");
 		if (dropdownHeader.classList.contains('display-inline-block')) {
 			dropdownHeader.classList.remove('display-inline-block');
 		}
@@ -68,7 +68,7 @@ function openWindowWallpapers() {
 		windowWallpapers.style.left = "50%";
 		windowWallpapers.classList.toggle("display-block");
 	}
-	document.getElementById("dropdown-header").classList.toggle("display-inline-block");
+	document.getElementById("header-dropdown-content").classList.toggle("display-inline-block");
 	windowWallpapers.parentNode.appendChild(windowWallpapers);
 }
 
@@ -79,7 +79,7 @@ function openWindowCheatCode() {
 		windowCheatCode.style.left = "50%";
 		windowCheatCode.classList.toggle("display-block");
 	}
-	document.getElementById("dropdown-header").classList.toggle("display-inline-block");
+	document.getElementById("header-dropdown-content").classList.toggle("display-inline-block");
 	windowCheatCode.parentNode.appendChild(windowCheatCode);
 }
 
@@ -90,7 +90,7 @@ function openWindowAbout() {
 		windowAbout.style.left = "50%";
 		windowAbout.classList.toggle("display-block");
 	}
-	document.getElementById("dropdown-header").classList.toggle("display-inline-block");
+	document.getElementById("header-dropdown-content").classList.toggle("display-inline-block");
 	windowAbout.parentNode.appendChild(windowAbout);
 }
 
@@ -325,9 +325,9 @@ let wallpaperPreviewImg = document.getElementById("wallpaper-preview-img");
 let wallpaperVideo = document.getElementById("wallpaper-video");
 let wallpaperCount = 1;
 
-let headerLi = document.getElementById("header-li");
-let headerBlank = document.getElementById("header-blank");
-let headerAside = document.getElementById("header-aside");
+let headerDropdownBtn = document.getElementById("header-dropdown-btn");
+let headerWhitespace = document.getElementById("header-whitespace");
+let headerTimeDate = document.getElementById("header-timedate");
 let desktopIconText = document.getElementsByClassName("desktop-icon-text")
 
 function changeWallpaperPreviewStreet() {
@@ -370,19 +370,19 @@ function applyWallpaperChange() {
 			}
 		);
 
-		if (headerLi.classList.contains('mix-blend-mode-normal')) {
-			headerLi.classList.remove('mix-blend-mode-normal');
-			headerLi.classList.add('mix-blend-mode-difference');
+		if (headerDropdownBtn.classList.contains('mix-blend-mode-normal')) {
+			headerDropdownBtn.classList.remove('mix-blend-mode-normal');
+			headerDropdownBtn.classList.add('mix-blend-mode-difference');
 		}
 
-		if (headerBlank.classList.contains('mix-blend-mode-normal')) {
-			headerBlank.classList.remove('mix-blend-mode-normal');
-			headerBlank.classList.add('mix-blend-mode-difference');
+		if (headerWhitespace.classList.contains('mix-blend-mode-normal')) {
+			headerWhitespace.classList.remove('mix-blend-mode-normal');
+			headerWhitespace.classList.add('mix-blend-mode-difference');
 		}
 
-		if (headerAside.classList.contains('mix-blend-mode-normal')) {
-			headerAside.classList.remove('mix-blend-mode-normal');
-			headerAside.classList.add('mix-blend-mode-difference');
+		if (headerTimeDate.classList.contains('mix-blend-mode-normal')) {
+			headerTimeDate.classList.remove('mix-blend-mode-normal');
+			headerTimeDate.classList.add('mix-blend-mode-difference');
 		}
 	}
 
@@ -395,19 +395,19 @@ function applyWallpaperChange() {
 			}
 		);
 
-		if (headerLi.classList.contains('mix-blend-mode-normal')) {
-			headerLi.classList.remove('mix-blend-mode-normal');
-			headerLi.classList.add('mix-blend-mode-difference');
+		if (headerDropdownBtn.classList.contains('mix-blend-mode-normal')) {
+			headerDropdownBtn.classList.remove('mix-blend-mode-normal');
+			headerDropdownBtn.classList.add('mix-blend-mode-difference');
 		}
 
-		if (headerBlank.classList.contains('mix-blend-mode-normal')) {
-			headerBlank.classList.remove('mix-blend-mode-normal');
-			headerBlank.classList.add('mix-blend-mode-difference');
+		if (headerWhitespace.classList.contains('mix-blend-mode-normal')) {
+			headerWhitespace.classList.remove('mix-blend-mode-normal');
+			headerWhitespace.classList.add('mix-blend-mode-difference');
 		}
 
-		if (headerAside.classList.contains('mix-blend-mode-normal')) {
-			headerAside.classList.remove('mix-blend-mode-normal');
-			headerAside.classList.add('mix-blend-mode-difference');
+		if (headerTimeDate.classList.contains('mix-blend-mode-normal')) {
+			headerTimeDate.classList.remove('mix-blend-mode-normal');
+			headerTimeDate.classList.add('mix-blend-mode-difference');
 		}
 	}
 
@@ -420,19 +420,19 @@ function applyWallpaperChange() {
 			}
 		);
 
-		if (headerLi.classList.contains('mix-blend-mode-difference')) {
-			headerLi.classList.remove('mix-blend-mode-difference');
-			headerLi.classList.add('mix-blend-mode-normal');
+		if (headerDropdownBtn.classList.contains('mix-blend-mode-difference')) {
+			headerDropdownBtn.classList.remove('mix-blend-mode-difference');
+			headerDropdownBtn.classList.add('mix-blend-mode-normal');
 		}
 
-		if (headerBlank.classList.contains('mix-blend-mode-difference')) {
-			headerBlank.classList.remove('mix-blend-mode-difference');
-			headerBlank.classList.add('mix-blend-mode-normal');
+		if (headerWhitespace.classList.contains('mix-blend-mode-difference')) {
+			headerWhitespace.classList.remove('mix-blend-mode-difference');
+			headerWhitespace.classList.add('mix-blend-mode-normal');
 		}
 
-		if (headerAside.classList.contains('mix-blend-mode-difference')) {
-			headerAside.classList.remove('mix-blend-mode-difference');
-			headerAside.classList.add('mix-blend-mode-normal');
+		if (headerTimeDate.classList.contains('mix-blend-mode-difference')) {
+			headerTimeDate.classList.remove('mix-blend-mode-difference');
+			headerTimeDate.classList.add('mix-blend-mode-normal');
 		}
 	}
 
@@ -445,19 +445,19 @@ function applyWallpaperChange() {
 			}
 		);
 
-		if (headerLi.classList.contains('mix-blend-mode-difference')) {
-			headerLi.classList.remove('mix-blend-mode-difference');
-			headerLi.classList.add('mix-blend-mode-normal');
+		if (headerDropdownBtn.classList.contains('mix-blend-mode-difference')) {
+			headerDropdownBtn.classList.remove('mix-blend-mode-difference');
+			headerDropdownBtn.classList.add('mix-blend-mode-normal');
 		}
 
-		if (headerBlank.classList.contains('mix-blend-mode-difference')) {
-			headerBlank.classList.remove('mix-blend-mode-difference');
-			headerBlank.classList.add('mix-blend-mode-normal');
+		if (headerWhitespace.classList.contains('mix-blend-mode-difference')) {
+			headerWhitespace.classList.remove('mix-blend-mode-difference');
+			headerWhitespace.classList.add('mix-blend-mode-normal');
 		}
 
-		if (headerAside.classList.contains('mix-blend-mode-difference')) {
-			headerAside.classList.remove('mix-blend-mode-difference');
-			headerAside.classList.add('mix-blend-mode-normal');
+		if (headerTimeDate.classList.contains('mix-blend-mode-difference')) {
+			headerTimeDate.classList.remove('mix-blend-mode-difference');
+			headerTimeDate.classList.add('mix-blend-mode-normal');
 		}
 	}
 
@@ -470,19 +470,19 @@ function applyWallpaperChange() {
 			}
 		);
 
-		if (headerLi.classList.contains('mix-blend-mode-normal')) {
-			headerLi.classList.remove('mix-blend-mode-normal');
-			headerLi.classList.add('mix-blend-mode-difference');
+		if (headerDropdownBtn.classList.contains('mix-blend-mode-normal')) {
+			headerDropdownBtn.classList.remove('mix-blend-mode-normal');
+			headerDropdownBtn.classList.add('mix-blend-mode-difference');
 		}
 
-		if (headerBlank.classList.contains('mix-blend-mode-normal')) {
-			headerBlank.classList.remove('mix-blend-mode-normal');
-			headerBlank.classList.add('mix-blend-mode-difference');
+		if (headerWhitespace.classList.contains('mix-blend-mode-normal')) {
+			headerWhitespace.classList.remove('mix-blend-mode-normal');
+			headerWhitespace.classList.add('mix-blend-mode-difference');
 		}
 
-		if (headerAside.classList.contains('mix-blend-mode-normal')) {
-			headerAside.classList.remove('mix-blend-mode-normal');
-			headerAside.classList.add('mix-blend-mode-difference');
+		if (headerTimeDate.classList.contains('mix-blend-mode-normal')) {
+			headerTimeDate.classList.remove('mix-blend-mode-normal');
+			headerTimeDate.classList.add('mix-blend-mode-difference');
 		}
 	}
 
@@ -495,19 +495,19 @@ function applyWallpaperChange() {
 			}
 		);
 
-		if (headerLi.classList.contains('mix-blend-mode-difference')) {
-			headerLi.classList.remove('mix-blend-mode-difference');
-			headerLi.classList.add('mix-blend-mode-normal');
+		if (headerDropdownBtn.classList.contains('mix-blend-mode-difference')) {
+			headerDropdownBtn.classList.remove('mix-blend-mode-difference');
+			headerDropdownBtn.classList.add('mix-blend-mode-normal');
 		}
 
-		if (headerBlank.classList.contains('mix-blend-mode-difference')) {
-			headerBlank.classList.remove('mix-blend-mode-difference');
-			headerBlank.classList.add('mix-blend-mode-normal');
+		if (headerWhitespace.classList.contains('mix-blend-mode-difference')) {
+			headerWhitespace.classList.remove('mix-blend-mode-difference');
+			headerWhitespace.classList.add('mix-blend-mode-normal');
 		}
 
-		if (headerAside.classList.contains('mix-blend-mode-difference')) {
-			headerAside.classList.remove('mix-blend-mode-difference');
-			headerAside.classList.add('mix-blend-mode-normal');
+		if (headerTimeDate.classList.contains('mix-blend-mode-difference')) {
+			headerTimeDate.classList.remove('mix-blend-mode-difference');
+			headerTimeDate.classList.add('mix-blend-mode-normal');
 		}
 	}
 }

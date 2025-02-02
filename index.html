@@ -13,32 +13,40 @@
 </head>
 
 <body>
-	<div id="bg-video-noise-container">
-		<div id="bg-video-noise"></div>
+
+	<div id="wallpaper-noise-container">
+		<div id="wallpaper-noise"></div>
 	</div>
-	<div id="bg-video-container">
-		<video id="wallpaper-video" disablePictureInPicture playsinline autoplay loop muted preload="metadata"
-			crossorigin="anonymous">
+
+	<div id="wallpaper-video-container">
+		<video id="wallpaper-video" disablePictureInPicture playsinline autoplay loop muted preload="metadata" crossorigin="anonymous">
 			<source type="video/mp4" src="/videos/street.mp4">
 		</video>
 	</div>
-	<header>
-		<ul class="dropdown">
-			<li id="header-li" class="dropdown-btn mix-blend-mode-difference" onclick="openDropdownHeader()">
-				<img src="/images/ui/header_logo.png" alt="GOD logo" class="header-logo" draggable="false">
-				<img src="/images/ui/arrow.png" alt="dropdown arrow" class="dropdown-arrow" draggable="false">
+
+	<header id="header">
+
+		<ul id="header-dropdown" class="dropdown">
+
+			<li id="header-dropdown-btn" class="dropdown-btn header-border-bottom header-border-right mix-blend-mode-difference" onclick="openDropdownHeader()">
+				<img src="/images/ui/header_logo.png" alt="GOD logo" class="header-dropdown-btn-logo" draggable="false">
+				<img src="/images/ui/arrow.png" alt="dropdown arrow" class="header-dropdown-btn-arrow" draggable="false">
 			</li>
-			<div id="dropdown-header" class="dropdown-content text-black">
+
+			<div id="header-dropdown-content" class="dropdown-content text-black">
 				<span onclick="openWindowWallpapers()">Wallpapers</span>
 				<span onclick="openWindowCheatCode()">Cheat Code Entry</span>
 				<span onclick="openWindowAbout()">About</span>
 			</div>
 		</ul>
-		<div id="header-blank" class="mix-blend-mode-difference"></div>
-		<aside id="header-aside" class="mix-blend-mode-difference">
-			<span class="header-item" id="date">Tues Jun 6 2006</span>
-			<span class="header-item" id="time">6:66 AM</span>
-		</aside>
+
+		<div id="header-whitespace" class="header-border-bottom header-border-right mix-blend-mode-difference"></div>
+
+		<div id="header-timedate" class="header-border-bottom mix-blend-mode-difference">
+			<span class="header-timedate-item header-border-right" id="date">Tues Jun 6 2006</span>
+			<span class="header-timedate-item" id="time">6:66 AM</span>
+		</div>
+
 	</header>
 
 	<main id="main">
