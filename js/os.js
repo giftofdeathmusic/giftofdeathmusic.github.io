@@ -39,14 +39,14 @@ function openDropdownHeader() {
 
 
 // Close the header dropdown if the user clicks outside of it
-window.ontouchstart = function (event) {
-	if (!event.target.matches('.dropdown-btn') && !event.target.matches('.dropdown-btn img') && !event.target.matches('.dropdown-content span')) {
-		var dropdownHeader = document.getElementById("header-dropdown-content");
-		if (dropdownHeader.classList.contains('display-inline-block')) {
-			dropdownHeader.classList.remove('display-inline-block');
-		}
-	}
-}
+// window.ontouchstart = function (event) {
+// 	if (!event.target.matches('.dropdown-btn') && !event.target.matches('.dropdown-btn img') && !event.target.matches('.dropdown-content span')) {
+// 		var dropdownHeader = document.getElementById("header-dropdown-content");
+// 		if (dropdownHeader.classList.contains('display-inline-block')) {
+// 			dropdownHeader.classList.remove('display-inline-block');
+// 		}
+// 	}
+// }
 
 window.onclick = function (event) {
 	if (!event.target.matches('.dropdown-btn') && !event.target.matches('.dropdown-btn img') && !event.target.matches('.dropdown-content span')) {
