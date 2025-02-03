@@ -28,6 +28,7 @@ body {
 
 html {
   background-color: var(--background-black);
+  touch-action: manipulation;
 }
 
 /* -- Main Text -- */
