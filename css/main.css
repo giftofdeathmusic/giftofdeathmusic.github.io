@@ -436,7 +436,7 @@ main {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-items: center;
-  background-image: url(/images/ui/god_cover_blurred.png);
+  background-image: url(/images/ui/god_cover_blurred.jpg);
   background-size: cover;
   background-position: bottom;
 }
