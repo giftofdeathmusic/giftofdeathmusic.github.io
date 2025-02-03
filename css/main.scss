@@ -500,13 +500,10 @@ main {
 }
 
 #window-god-content {
-	padding: 10px;
+	padding: 20px 10px 15px 10px;
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	justify-items: center;
-	align-items: center;
-	align-content: center;
-	aspect-ratio: 2.5;
 	background-image: url(/images/ui/god_cover_blurred.png);
 	background-size: cover;
 	background-position: bottom;
@@ -515,6 +512,7 @@ main {
 .window-god-group {
 	position: relative;
 	display: flex;
+	text-align: center;
 	flex-direction: column;
 	align-items: center;
 	width: fit-content;
@@ -628,5 +626,55 @@ main {
 	
 	#window-welcome {
 		width: 300px;
+	}
+
+
+
+
+	/* -- GOD Album Window -- */
+	
+	#window-god {
+		width: 280px;
+	}
+
+
+
+
+	/* -- Members Window -- */
+	
+	#window-members {
+		width: 320px;
+	}
+	
+	.members-group img {
+		width: 56px;
+		height: 56px;
+	}
+
+
+
+
+	/* -- Wallpapers Window -- */
+	
+	#window-wallpapers {
+		width: 200px;
+	}
+
+
+
+
+	/* -- Cheat Code Window -- */
+	
+	#window-cheat-code {
+		width: 280px;
+	}
+
+
+
+
+	/* -- About Window -- */
+	
+	#window-about {
+		width: 200px;
 	}
 }
