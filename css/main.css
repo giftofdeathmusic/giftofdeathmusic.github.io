@@ -537,6 +537,10 @@ main {
   flex-direction: column-reverse;
 }
 
+#unfinished-text span {
+  mix-blend-mode: difference;
+}
+
 #image-loader {
   overflow: hidden;
   width: 0px;
