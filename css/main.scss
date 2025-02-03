@@ -33,6 +33,9 @@ body {
 html {
 	background-color: var(--background-black);
 	touch-action: manipulation;
+	-webkit-user-select: none; /* Safari */
+	-ms-user-select: none; /* IE 10 and IE 11 */
+	user-select: none; /* Standard syntax */
 }
 
 
