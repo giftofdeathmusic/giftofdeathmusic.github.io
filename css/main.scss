@@ -613,3 +613,20 @@ main {
 .display-inline-block {
 	display: inline-block;
 }
+
+
+
+
+
+
+
+/* ------------ MOBILE ------------ */
+
+@media (max-width: 35em) {
+
+	/* -- Welcome Window -- */
+	
+	#window-welcome {
+		width: 300px;
+	}
+}
