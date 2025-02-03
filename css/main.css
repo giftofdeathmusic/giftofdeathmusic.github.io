@@ -528,17 +528,20 @@ main {
 }
 
 #unfinished-text {
-  z-index: -999999;
   pointer-events: none;
   width: 100%;
   height: calc(100% - 40px);
   text-align: center;
   display: flex;
   flex-direction: column-reverse;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
 }
 
 #unfinished-text span {
   mix-blend-mode: difference;
+  z-index: -9999;
 }
 
 #image-loader {
