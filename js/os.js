@@ -14,7 +14,7 @@ function setTime() {
 
 	const timeString = `${hours.toString()}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 
-	document.getElementById("time").textContent = timeString;
+	document.getElementById("header-time").textContent = timeString;
 }
 
 setInterval(setTime, 1000);
@@ -24,35 +24,34 @@ function setDate() {
 	const yearString = yearCurrent + 20;
 	const dateString = moment().format('MMM D') + ", " + yearString;
 
-	document.getElementById("date").textContent = dateString;
+	document.getElementById("header-date").textContent = dateString;
 }
 
 
 
 
 // HEADER DROPDOWN
-function openDropdownHeader() {
-	document.getElementById("header-dropdown-content").classList.toggle("display-inline-block");
+
+let headerDropdownContent = document.getElementById("header-dropdown-content");
+
+// Open header dropdown
+function openHeaderDropdown() {
+	headerDropdownContent.classList.toggle("display-inline-block");
 }
-
-
-
 
 // Close the header dropdown if the user clicks outside of it
 window.ontouchstart = function (event) {
 	if (!event.target.matches('.dropdown-btn') && !event.target.matches('.dropdown-btn img') && !event.target.matches('.dropdown-content span')) {
-		var dropdownHeader = document.getElementById("header-dropdown-content");
-		if (dropdownHeader.classList.contains('display-inline-block')) {
-			dropdownHeader.classList.remove('display-inline-block');
+		if (headerDropdownContent.classList.contains('display-inline-block')) {
+			headerDropdownContent.classList.remove('display-inline-block');
 		}
 	}
 }
 
 window.onclick = function (event) {
 	if (!event.target.matches('.dropdown-btn') && !event.target.matches('.dropdown-btn img') && !event.target.matches('.dropdown-content span')) {
-		var dropdownHeader = document.getElementById("header-dropdown-content");
-		if (dropdownHeader.classList.contains('display-inline-block')) {
-			dropdownHeader.classList.remove('display-inline-block');
+		if (headerDropdownContent.classList.contains('display-inline-block')) {
+			headerDropdownContent.classList.remove('display-inline-block');
 		}
 	}
 }
@@ -61,6 +60,7 @@ window.onclick = function (event) {
 
 
 // HEADER LINKS
+
 function openWindowWallpapers() {
 	let windowWallpapers = document.getElementById("window-wallpapers");
 	if (!windowWallpapers.classList.contains('display-block')) {
@@ -68,7 +68,7 @@ function openWindowWallpapers() {
 		windowWallpapers.style.left = "50%";
 		windowWallpapers.classList.toggle("display-block");
 	}
-	document.getElementById("header-dropdown-content").classList.toggle("display-inline-block");
+	headerDropdownContent.classList.toggle("display-inline-block");
 	windowWallpapers.parentNode.appendChild(windowWallpapers);
 }
 
@@ -79,7 +79,7 @@ function openWindowCheatCode() {
 		windowCheatCode.style.left = "50%";
 		windowCheatCode.classList.toggle("display-block");
 	}
-	document.getElementById("header-dropdown-content").classList.toggle("display-inline-block");
+	headerDropdownContent.classList.toggle("display-inline-block");
 	windowCheatCode.parentNode.appendChild(windowCheatCode);
 }
 
@@ -90,7 +90,7 @@ function openWindowAbout() {
 		windowAbout.style.left = "50%";
 		windowAbout.classList.toggle("display-block");
 	}
-	document.getElementById("header-dropdown-content").classList.toggle("display-inline-block");
+	headerDropdownContent.classList.toggle("display-inline-block");
 	windowAbout.parentNode.appendChild(windowAbout);
 }
 
@@ -131,6 +131,14 @@ function selectIconGOD() {
 
 
 
+// 	//Hide Window if [X] clicked/tapped
+	function closeWindow(event) {
+		event.target.parentElement.parentElement.classList.remove("display-block");
+	}
+
+
+
+
 // DECLARE DRAGGABLE WINDOWS
 makeDraggable(document.getElementById("window-welcome"));
 makeDraggable(document.getElementById("window-members"));
@@ -143,179 +151,169 @@ makeDraggable(document.getElementById("window-about"));
 
 
 // DRAG AND CLOSE WINDOWS
-// function makeDraggable(windowElement) {
-// 	let pos1 = 0,
-// 		pos2 = 0,
-// 		pos3 = 0,
-// 		pos4 = 0;
+function makeDraggable(windowElement) {
+	let pos1 = 0,
+		pos2 = 0,
+		pos3 = 0,
+		pos4 = 0;
 
-// 	let windowDragArea = windowElement.getElementsByClassName("window-drag-area")[0];
-// 	let windowClose = windowElement.getElementsByClassName("window-close")[0];
-
-// 	//Hide Window if [X] clicked/tapped
-// 	windowClose.onmouseup = function () { hideWindow(windowClose) };
-// 	windowClose.ontouchcancel = function () { hideWindow(windowClose) };
-// 	function hideWindow() {
-// 		console.log("close touched");
-// 		windowClose.parentElement.parentElement.classList.toggle("display-block");
-// 	}
-// 	windowClose.ontouchstart = function () { hideWindow(windowClose) };
-// 	function hideWindow() {
-// 		console.log("close touched");
-// 		windowClose.parentElement.parentElement.classList.toggle("display-block");
-// 	}
+	let windowDragArea1 = windowElement.getElementsByClassName("window-drag-area")[0];
+	let windowDragArea2 = windowElement.getElementsByClassName("window-drag-area")[1];
+	let windowContent = windowElement.getElementsByClassName("window-content")[0];
 
 // 	//Bring window to front
-// 	windowElement.onmousedown = function () { bringWindowToFront(windowElement) };
-// 	function bringWindowToFront() {
-// 		windowElement.parentNode.appendChild(windowElement);
-// 	}
-// 	windowElement.ontouchstart = function () { bringWindowToFront(windowElement) };
-// 	function bringWindowToFront() {
-// 		windowElement.parentNode.appendChild(windowElement);
-// 	}
-
-// 	//Window Drag Area
-// 	if (windowDragArea !== undefined) {
-// 		// if there is header, the header is where you move the DIV from
-// 		windowDragArea.onmousedown = dragMouseDown;
-// 		windowDragArea.addEventListener("touchstart", dragMouseDown, false); //added touch event
-// 	} else {
-// 		// otherwise, move the DIV from anywhere inside the DIV
-// 		windowElement.onmousedown = dragMouseDown;
-// 		windowElement.addEventListener("touchstart", dragMouseDown, false); //added touch event
-// 	}
-
-// 	function dragMouseDown(e) {
-// 		//Bring window to front
-// 		if (!e.target.matches('.window-close')) {
-// 			windowElement.parentNode.appendChild(windowElement);
-// 		}
+	windowContent.onmousedown = function () { bringWindowToFront(windowElement) };
+	windowDragArea1.onmousedown = function () { bringWindowToFront(windowElement) };
+	windowDragArea2.onmousedown = function () { bringWindowToFront(windowElement) };
+	// windowContent.ontouchstart = function () { bringWindowToFront(windowElement) };
+	// windowDragArea1.ontouchstart = function () { bringWindowToFront(windowElement) };
+	// windowDragArea2.ontouchstart = function () { bringWindowToFront(windowElement) };
+	function bringWindowToFront() {
+		windowElement.parentNode.appendChild(windowElement);
+	}
 
 
-// 		console.log("dragMouseDown called by event: ", e.type);
-// 		let x;
-// 		let y;
 
-// 		//Get touch or click position
-// 		//https://stackoverflow.com/a/41993300/5078983
-// 		if (
-// 			e.type === "touchstart" ||
-// 			e.type === "touchmove" ||
-// 			e.type === "touchend" ||
-// 			e.type === "touchcancel"
-// 		)
-// 		{
-// 			let evt = typeof e.originalEvent === "undefined" ? e : e.originalEvent;
-// 			let touch = evt.touches[0] || evt.changedTouches[0];
-// 			x = touch.pageX;
-// 			y = touch.pageY;
-// 		} else if (
-// 			e.type === "mousedown" ||
-// 			e.type === "mouseup" ||
-// 			e.type === "mousemove" ||
-// 			e.type === "mouseover" ||
-// 			e.type === "mouseout" ||
-// 			e.type === "mouseenter" ||
-// 			e.type === "mouseleave"
-// 		) {
-// 			x = e.clientX;
-// 			y = e.clientY;
-// 		}
 
-// 		console.log("drag start x: " + x + " y:" + y);
 
-// 		// get the mouse cursor position at startup:
-// 		pos3 = x;
-// 		pos4 = y;
-// 		document.onmouseup = closeDragElement;
-// 		// document.ontouchend = closeDragElement;
-// 		document.addEventListener("touchend", closeDragElement, false);
-// 		// call a function whenever the cursor moves:
-// 		document.onmousemove = elementDrag;
-// 		// document.ontouchmove = elementDrag;
-// 		document.addEventListener("touchmove", elementDrag, false);
-// 	}
 
-// 	function elementDrag(e) {
-// 		let x;
-// 		let y;
+	// Window Drag Area
+		windowDragArea1.onmousedown = dragMouseDown;
+		windowDragArea1.addEventListener("touchstart", dragMouseDown, false); //added touch event
+		windowDragArea2.onmousedown = dragMouseDown;
+		windowDragArea2.addEventListener("touchstart", dragMouseDown, false); //added touch event
 
-// 		//Get touch or click position
-// 		//https://stackoverflow.com/a/41993300/5078983
-// 		if (
-// 			e.type === "touchstart" ||
-// 			e.type === "touchmove" ||
-// 			e.type === "touchend" ||
-// 			e.type === "touchcancel"
-// 		) {
-// 			let evt = typeof e.originalEvent === "undefined" ? e : e.originalEvent;
-// 			let touch = evt.touches[0] || evt.changedTouches[0];
-// 			x = touch.pageX;
-// 			y = touch.pageY;
-// 		} else if (
-// 			e.type === "mousedown" ||
-// 			e.type === "mouseup" ||
-// 			e.type === "mousemove" ||
-// 			e.type === "mouseover" ||
-// 			e.type === "mouseout" ||
-// 			e.type === "mouseenter" ||
-// 			e.type === "mouseleave"
-// 		) {
-// 			x = e.clientX;
-// 			y = e.clientY;
-// 		}
 
-// 		// calculate the new cursor position:
-// 		pos1 = pos3 - x;
-// 		pos2 = pos4 - y;
-// 		pos3 = x;
-// 		pos4 = y;
+	function dragMouseDown(e) {
+		//Bring window to front
+		if (!e.target.matches('.window-close')) {
+			windowElement.parentNode.appendChild(windowElement);
+		}
 
-// 		// Restrict movable area
-// 		let container = document.getElementById("main");
 
-// 		var windowInfo = windowElement.getBoundingClientRect();
-// 		var windowWidth = windowInfo.width;
-// 		var windowHeight = windowInfo.height;
+		console.log("dragMouseDown called by event: ", e.type);
+		let x;
+		let y;
 
-// 		var containerInfo = container.getBoundingClientRect();
-// 		var containerWidth = containerInfo.width;
-// 		var containerHeight = containerInfo.height;
+		//Get touch or click position
+		//https://stackoverflow.com/a/41993300/5078983
+		if (
+			e.type === "touchstart" ||
+			e.type === "touchmove" ||
+			e.type === "touchend" ||
+			e.type === "touchcancel"
+		)
+		{
+			let evt = typeof e.originalEvent === "undefined" ? e : e.originalEvent;
+			let touch = evt.touches[0] || evt.changedTouches[0];
+			x = touch.pageX;
+			y = touch.pageY;
+		} else if (
+			e.type === "mousedown" ||
+			e.type === "mouseup" ||
+			e.type === "mousemove" ||
+			e.type === "mouseover" ||
+			e.type === "mouseout" ||
+			e.type === "mouseenter" ||
+			e.type === "mouseleave"
+		) {
+			x = e.clientX;
+			y = e.clientY;
+		}
 
-// 		newPosTop = windowElement.offsetTop - pos2;
-// 		newPosLeft = windowElement.offsetLeft - pos1;
+		console.log("drag start x: " + x + " y:" + y);
 
-// 		if (newPosTop < windowHeight / 2) {
-// 			newPosTop = windowHeight / 2;
-// 		}
-// 		if (newPosTop > containerHeight - (windowHeight / 2)) {
-// 			newPosTop = containerHeight - (windowHeight / 2);
-// 		}
-// 		if (newPosLeft < windowWidth / 2) {
-// 			newPosLeft = windowWidth / 2;
-// 		}
-// 		if (newPosLeft > containerWidth - (windowWidth / 2)) {
-// 			newPosLeft = containerWidth - (windowWidth / 2);
-// 		}
+		// get the mouse cursor position at startup:
+		pos3 = x;
+		pos4 = y;
+		document.onmouseup = closeDragElement;
+		// document.ontouchend = closeDragElement;
+		document.addEventListener("touchend", closeDragElement, false);
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+		// document.ontouchmove = elementDrag;
+		document.addEventListener("touchmove", elementDrag, false);
+	}
 
-// 		// set the element's new position:
-// 		windowElement.style.top = newPosTop + "px";
-// 		windowElement.style.left = newPosLeft + "px";
-// 	}
+	function elementDrag(e) {
+		let x;
+		let y;
 
-// 	function closeDragElement() {
-// 		console.log("drag end x: " + pos3 + " y:" + pos4);
-// 		// stop moving when mouse button is released:
-// 		document.onmouseup = null;
-// 		document.ontouchcancel = null; //added touch event
-// 		document.onmousemove = null;
-// 		// document.ontouchend = null; //added touch event
-// 		document.removeEventListener("touchend", closeDragElement, false);
-// 		document.removeEventListener("touchmove", elementDrag, false);
-// 		// document.ontouchmove = null; //added touch event
-// 	}
-// }
+		//Get touch or click position
+		//https://stackoverflow.com/a/41993300/5078983
+		if (
+			e.type === "touchstart" ||
+			e.type === "touchmove" ||
+			e.type === "touchend" ||
+			e.type === "touchcancel"
+		) {
+			let evt = typeof e.originalEvent === "undefined" ? e : e.originalEvent;
+			let touch = evt.touches[0] || evt.changedTouches[0];
+			x = touch.pageX;
+			y = touch.pageY;
+		} else if (
+			e.type === "mousedown" ||
+			e.type === "mouseup" ||
+			e.type === "mousemove" ||
+			e.type === "mouseover" ||
+			e.type === "mouseout" ||
+			e.type === "mouseenter" ||
+			e.type === "mouseleave"
+		) {
+			x = e.clientX;
+			y = e.clientY;
+		}
+
+		// calculate the new cursor position:
+		pos1 = pos3 - x;
+		pos2 = pos4 - y;
+		pos3 = x;
+		pos4 = y;
+
+		// Restrict movable area
+		let container = document.getElementById("main");
+
+		var windowInfo = windowElement.getBoundingClientRect();
+		var windowWidth = windowInfo.width;
+		var windowHeight = windowInfo.height;
+
+		var containerInfo = container.getBoundingClientRect();
+		var containerWidth = containerInfo.width;
+		var containerHeight = containerInfo.height;
+
+		newPosTop = windowElement.offsetTop - pos2;
+		newPosLeft = windowElement.offsetLeft - pos1;
+
+		if (newPosTop < windowHeight / 2) {
+			newPosTop = windowHeight / 2;
+		}
+		if (newPosTop > containerHeight - (windowHeight / 2)) {
+			newPosTop = containerHeight - (windowHeight / 2);
+		}
+		if (newPosLeft < windowWidth / 2) {
+			newPosLeft = windowWidth / 2;
+		}
+		if (newPosLeft > containerWidth - (windowWidth / 2)) {
+			newPosLeft = containerWidth - (windowWidth / 2);
+		}
+
+		// set the element's new position:
+		windowElement.style.top = newPosTop + "px";
+		windowElement.style.left = newPosLeft + "px";
+	}
+
+	function closeDragElement() {
+		console.log("drag end x: " + pos3 + " y:" + pos4);
+		// stop moving when mouse button is released:
+		document.onmouseup = null;
+		document.ontouchcancel = null; //added touch event
+		document.onmousemove = null;
+		// document.ontouchend = null; //added touch event
+		document.removeEventListener("touchend", closeDragElement, false);
+		document.removeEventListener("touchmove", elementDrag, false);
+		// document.ontouchmove = null; //added touch event
+	}
+}
 
 
 
@@ -325,10 +323,8 @@ let wallpaperPreviewImg = document.getElementById("wallpaper-preview-img");
 let wallpaperVideo = document.getElementById("wallpaper-video");
 let wallpaperCount = 1;
 
-let headerDropdownBtn = document.getElementById("header-dropdown-btn");
-let headerWhitespace = document.getElementById("header-whitespace");
-let headerTimeDate = document.getElementById("header-timedate");
-let desktopIconText = document.getElementsByClassName("desktop-icon-text")
+let headerDIV = document.getElementById("header");
+let desktopIconGroup = document.getElementById("desktop-icons");
 
 function changeWallpaperPreviewStreet() {
     wallpaperPreviewImg.src = '/images/wallpaper-preview/street.jpg';
@@ -364,150 +360,72 @@ function applyWallpaperChange() {
 	if (wallpaperCount == 1) {
 		wallpaperVideo.src = '/videos/street.mp4';
 
-		Array.from(desktopIconText).forEach(
-			function(element, index, array) {
-				element.style.color = '#fff';
-			}
-		);
+		headerDIV.classList.remove('header-white');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-difference');
 
-		if (headerDropdownBtn.classList.contains('mix-blend-mode-normal')) {
-			headerDropdownBtn.classList.remove('mix-blend-mode-normal');
-			headerDropdownBtn.classList.add('mix-blend-mode-difference');
-		}
-
-		if (headerWhitespace.classList.contains('mix-blend-mode-normal')) {
-			headerWhitespace.classList.remove('mix-blend-mode-normal');
-			headerWhitespace.classList.add('mix-blend-mode-difference');
-		}
-
-		if (headerTimeDate.classList.contains('mix-blend-mode-normal')) {
-			headerTimeDate.classList.remove('mix-blend-mode-normal');
-			headerTimeDate.classList.add('mix-blend-mode-difference');
+		if (desktopIconGroup.classList.contains('text-black')) {
+			desktopIconGroup.classList.remove("text-black");
 		}
 	}
 
 	if (wallpaperCount == 2) {
 		wallpaperVideo.src = '/videos/ambient.mp4';
 
-		Array.from(desktopIconText).forEach(
-			function(element, index, array) {
-				element.style.color = '#fff';
-			}
-		);
+		headerDIV.classList.remove('header-white');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-difference');
 
-		if (headerDropdownBtn.classList.contains('mix-blend-mode-normal')) {
-			headerDropdownBtn.classList.remove('mix-blend-mode-normal');
-			headerDropdownBtn.classList.add('mix-blend-mode-difference');
-		}
-
-		if (headerWhitespace.classList.contains('mix-blend-mode-normal')) {
-			headerWhitespace.classList.remove('mix-blend-mode-normal');
-			headerWhitespace.classList.add('mix-blend-mode-difference');
-		}
-
-		if (headerTimeDate.classList.contains('mix-blend-mode-normal')) {
-			headerTimeDate.classList.remove('mix-blend-mode-normal');
-			headerTimeDate.classList.add('mix-blend-mode-difference');
+		if (desktopIconGroup.classList.contains('text-black')) {
+			desktopIconGroup.classList.remove("text-black");
 		}
 	}
 
 	if (wallpaperCount == 3) {
 		wallpaperVideo.src = '/videos/jellyfish.mp4';
 
-		Array.from(desktopIconText).forEach(
-			function(element, index, array) {
-				element.style.color = '#fff';
-			}
-		);
+		headerDIV.classList.remove('header-difference');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-white');
 
-		if (headerDropdownBtn.classList.contains('mix-blend-mode-difference')) {
-			headerDropdownBtn.classList.remove('mix-blend-mode-difference');
-			headerDropdownBtn.classList.add('mix-blend-mode-normal');
-		}
-
-		if (headerWhitespace.classList.contains('mix-blend-mode-difference')) {
-			headerWhitespace.classList.remove('mix-blend-mode-difference');
-			headerWhitespace.classList.add('mix-blend-mode-normal');
-		}
-
-		if (headerTimeDate.classList.contains('mix-blend-mode-difference')) {
-			headerTimeDate.classList.remove('mix-blend-mode-difference');
-			headerTimeDate.classList.add('mix-blend-mode-normal');
+		if (desktopIconGroup.classList.contains('text-black')) {
+			desktopIconGroup.classList.remove("text-black");
 		}
 	}
 
 	if (wallpaperCount == 4) {
 		wallpaperVideo.src = '/videos/bokeh.mp4';
 
-		Array.from(desktopIconText).forEach(
-			function(element, index, array) {
-				element.style.color = '#fff';
-			}
-		);
+		headerDIV.classList.remove('header-white');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-difference');
 
-		if (headerDropdownBtn.classList.contains('mix-blend-mode-difference')) {
-			headerDropdownBtn.classList.remove('mix-blend-mode-difference');
-			headerDropdownBtn.classList.add('mix-blend-mode-normal');
-		}
-
-		if (headerWhitespace.classList.contains('mix-blend-mode-difference')) {
-			headerWhitespace.classList.remove('mix-blend-mode-difference');
-			headerWhitespace.classList.add('mix-blend-mode-normal');
-		}
-
-		if (headerTimeDate.classList.contains('mix-blend-mode-difference')) {
-			headerTimeDate.classList.remove('mix-blend-mode-difference');
-			headerTimeDate.classList.add('mix-blend-mode-normal');
+		if (desktopIconGroup.classList.contains('text-black')) {
+			desktopIconGroup.classList.remove("text-black");
 		}
 	}
 
 	if (wallpaperCount == 5) {
 		wallpaperVideo.src = '/videos/body.mp4';
 
-		Array.from(desktopIconText).forEach(
-			function(element, index, array) {
-				element.style.color = '#000';
-			}
-		);
+		headerDIV.classList.remove('header-white');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-difference');
 
-		if (headerDropdownBtn.classList.contains('mix-blend-mode-normal')) {
-			headerDropdownBtn.classList.remove('mix-blend-mode-normal');
-			headerDropdownBtn.classList.add('mix-blend-mode-difference');
-		}
-
-		if (headerWhitespace.classList.contains('mix-blend-mode-normal')) {
-			headerWhitespace.classList.remove('mix-blend-mode-normal');
-			headerWhitespace.classList.add('mix-blend-mode-difference');
-		}
-
-		if (headerTimeDate.classList.contains('mix-blend-mode-normal')) {
-			headerTimeDate.classList.remove('mix-blend-mode-normal');
-			headerTimeDate.classList.add('mix-blend-mode-difference');
+		if (!desktopIconGroup.classList.contains('text-black')) {
+			desktopIconGroup.classList.add("text-black");
 		}
 	}
 
 	if (wallpaperCount == 6) {
 		wallpaperVideo.src = '/videos/lovers.mp4';
 
-		Array.from(desktopIconText).forEach(
-			function(element, index, array) {
-				element.style.color = '#fff';
-			}
-		);
+		headerDIV.classList.remove('header-difference');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-white');
 
-		if (headerDropdownBtn.classList.contains('mix-blend-mode-difference')) {
-			headerDropdownBtn.classList.remove('mix-blend-mode-difference');
-			headerDropdownBtn.classList.add('mix-blend-mode-normal');
-		}
-
-		if (headerWhitespace.classList.contains('mix-blend-mode-difference')) {
-			headerWhitespace.classList.remove('mix-blend-mode-difference');
-			headerWhitespace.classList.add('mix-blend-mode-normal');
-		}
-
-		if (headerTimeDate.classList.contains('mix-blend-mode-difference')) {
-			headerTimeDate.classList.remove('mix-blend-mode-difference');
-			headerTimeDate.classList.add('mix-blend-mode-normal');
+		if (desktopIconGroup.classList.contains('text-black')) {
+			desktopIconGroup.classList.remove("text-black");
 		}
 	}
 }

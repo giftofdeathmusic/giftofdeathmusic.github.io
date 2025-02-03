@@ -74,47 +74,12 @@ input:focus {
 }
 
 button {
-  line-height: 1.1;
+  line-height: 1.2;
   outline: none;
 }
 
 button:active {
   background-color: var(--surface-shadow);
-}
-
-/* -- Dropdown -- */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: var(--surface-white);
-  min-width: 160px;
-  overflow: auto;
-  border-left: 1px solid var(--pure-black);
-  border-right: 1px solid var(--pure-black);
-  border-bottom: 1px solid var(--pure-black);
-}
-
-.dropdown-content span {
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  cursor: pointer;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
-}
-
-.dropdown-content span:hover, .dropdown-content span:active {
-  background-color: var(--surface-shadow);
-}
-
-#header-dropdown-content {
-  z-index: 999999;
 }
 
 /* -- Wallpaper/Noise -- */
@@ -203,6 +168,8 @@ button:active {
 /* -- Header -- */
 #header {
   height: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -211,17 +178,38 @@ button:active {
        user-select: none; /* Standard syntax */
 }
 
+.header-difference {
+  mix-blend-mode: difference;
+  color: var(--pure-white);
+  border-color: var(--pure-white);
+  filter: brightness(1);
+}
+
+.header-white {
+  mix-blend-mode: normal;
+  color: var(--pure-white);
+  border-color: var(--pure-white);
+  filter: brightness(1);
+}
+
+.header-black {
+  mix-blend-mode: normal;
+  color: var(--pure-black);
+  border-color: var(--pure-black);
+  filter: brightness(0);
+}
+
 .header-border-bottom {
-  border-bottom: 1px solid var(--pure-white);
-  transform: translate3d(0, 0, 0);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .header-border-right {
-  border-right: 1px solid var(--pure-white);
-  transform: translate3d(0, 0, 0);
+  border-right-width: 1px;
+  border-right-style: solid;
 }
 
-/* -- Header Dropdown -- */
+/* -- Header Dropdown Button -- */
 #header-dropdown-btn {
   height: 20px;
   display: flex;
@@ -236,23 +224,19 @@ button:active {
   height: 20px;
   width: auto;
   margin: 0 4px 0 5px;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
 }
 
 .header-dropdown-btn-arrow {
   margin: 0 5px 0 0;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
 }
 
+/* -- Header Whitespace -- */
 #header-whitespace {
   height: 100%;
   flex-grow: 1;
 }
 
+/* -- Header Time/Date -- */
 #header-timedate {
   display: flex;
   align-items: center;
@@ -266,9 +250,36 @@ button:active {
   align-content: center;
   height: 20px;
   padding: 0 8px;
+}
+
+/* -- Header Dropdown Content -- */
+.dropdown-content {
+  display: none;
   -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
+}
+
+#header-dropdown-content {
+  position: fixed;
+  background-color: var(--surface-white);
+  min-width: 160px;
+  overflow: auto;
+  border-left: 1px solid var(--pure-black);
+  border-right: 1px solid var(--pure-black);
+  border-bottom: 1px solid var(--pure-black);
+  z-index: 999999;
+}
+
+#header-dropdown-content span {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+#header-dropdown-content span:hover, #header-dropdown-content span:active {
+  background-color: var(--surface-shadow);
 }
 
 /* -- Main Area -- */
@@ -293,7 +304,7 @@ main {
   z-index: -99995;
 }
 
-.window-drag-area {
+.window-header {
   height: 20px;
   padding: 4px;
   border-bottom: solid 1px var(--pure-black);
@@ -302,9 +313,13 @@ main {
   justify-content: space-between;
   text-wrap: nowrap;
   cursor: move;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
+}
+
+.window-content {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .window-close {
@@ -331,9 +346,6 @@ main {
      object-fit: cover;
   width: 100%;
   height: 100%;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
 }
 
 #welcome-txt {
@@ -343,49 +355,41 @@ main {
 /* -- Wallpapers Window -- */
 #window-wallpapers {
   width: 240px;
-  top: 18%;
-  left: 27%;
 }
 
 #window-wallpapers-content {
-  margin: 10px 10px 32px 10px;
+  padding: 10px;
 }
 
-.wallpaper-preview {
+#wallpaper-preview {
   width: 100%;
   margin-bottom: 10px;
 }
 
-.wallpaper-preview img {
+#wallpaper-preview-img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .wallpaper-list {
   display: grid;
   list-style: none;
+  margin: 0;
 }
 
-.wallpaper-list li {
+.wallpaper-option {
   margin: 10px;
   width: -moz-fit-content;
   width: fit-content;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
   cursor: pointer;
 }
 
-.window-bottom-bar {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 10px;
+.apply-wallpaper-btn-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .apply-wallpaper-btn {
-  float: right;
   cursor: pointer;
 }
 
@@ -395,37 +399,92 @@ main {
 }
 
 #window-cheat-code-content {
-  margin: 20px 20px 16px;
+  padding: 10px;
   text-align: right;
 }
 
 #cheat-code-entry-input {
   width: 100%;
-  margin-bottom: 14px;
+  margin: 5px 0 10px 0;
+  text-align: left;
+}
+
+/* -- About Window -- */
+#window-about {
+  width: 200px;
+}
+
+#window-about-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#window-about-content span {
+  padding: 10px 0;
+  line-height: 2;
+}
+
+/* -- GOD Album Window -- */
+#window-god {
+  width: 380px;
+}
+
+#window-god-content {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  aspect-ratio: 2.5;
+  background-image: url(/images/ui/god_cover_blurred.png);
+  background-size: cover;
+  background-position: bottom;
+}
+
+.window-god-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0px 10px 10px 10px;
+  cursor: pointer;
+}
+
+.window-god-group img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+.link-spanner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* edit: fixes overlap error in IE7/8, 
+     make sure you have an empty gif 
+  background-image: url('empty.gif');*/
 }
 
 /* -- Members Window -- */
 #window-members {
-  position: absolute;
-  flex-flow: column;
-  top: 45%;
-  left: 50%;
-  white-space: nowrap;
-  width: 370px;
+  width: 360px;
 }
 
 #window-members-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 10px 0 16px 0;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
+  padding: 5px 10px 13px 10px;
 }
 
 .members-row {
-  width: 100%;
   text-align: center;
 }
 
@@ -448,126 +507,7 @@ main {
 }
 
 .members-group span {
-  padding: 4px 0;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
-}
-
-/* -- GOD Album Window -- */
-#window-god {
-  width: 380px;
-}
-
-#window-god-content {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-items: center;
-  align-items: center;
-  align-content: center;
-  aspect-ratio: 1.5;
-  background-image: url(/images/ui/god_cover_blurred.png);
-  background-size: cover;
-  background-position: bottom;
-  color: #fff;
-  padding: 10px;
-}
-
-.window-god-group {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  margin: 10px;
-  cursor: pointer;
-}
-
-.window-god-group img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 10px;
-}
-
-.link-spanner {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  /* edit: fixes overlap error in IE7/8, 
-     make sure you have an empty gif 
-  background-image: url('empty.gif');*/
-}
-
-/* -- GOD Album Window -- */
-#window-god {
-  width: 380px;
-}
-
-#window-god-content {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-items: center;
-  align-items: center;
-  aspect-ratio: 1.5;
-  background-image: url(/images/ui/god_cover_blurred.png);
-  background-size: cover;
-  background-position: bottom;
-  color: #fff;
-  padding: 10px;
-}
-
-.window-god-group {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  margin: 10px;
-  cursor: pointer;
-}
-
-.window-god-group img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 10px;
-}
-
-.link-spanner {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  /* edit: fixes overlap error in IE7/8, 
-     make sure you have an empty gif 
-  background-image: url('empty.gif');*/
-}
-
-/* -- About Window -- */
-#window-about {
-  width: 200px;
-}
-
-#window-about-content {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  text-align: center;
-}
-
-#window-about-content span {
-  padding: 10px 0;
-  line-height: 2;
+  padding: 5px 0;
 }
 
 /* -- Desktop Icons -- */
@@ -579,20 +519,14 @@ main {
 }
 
 .desktop-icon-group {
-  margin: 8px;
+  margin: 10px;
   max-width: 64px;
   text-align: center;
   cursor: pointer;
 }
 
-.desktop-icon-group img, .desktop-icon-group span {
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none; /* Standard syntax */
-}
-
-.desktop-icon-selected span {
-  background-color: #3a2aff;
+.desktop-icon-text {
+  line-height: 1.2;
 }
 
 /* -- Override Classes -- */
@@ -602,12 +536,4 @@ main {
 
 .display-inline-block {
   display: inline-block;
-}
-
-.mix-blend-mode-difference {
-  mix-blend-mode: difference;
-}
-
-.mix-blend-mode-normal {
-  mix-blend-mode: normal;
 }/*# sourceMappingURL=main.css.map */
