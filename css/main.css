@@ -374,6 +374,7 @@ main {
 #wallpaper-preview-img {
   width: 100%;
   border-radius: 6px;
+  image-rendering: smooth;
 }
 
 .wallpaper-list {
@@ -444,6 +445,7 @@ main {
   background-image: url(/images/ui/god_cover_blurred.jpg);
   background-size: cover;
   background-position: bottom;
+  image-rendering: smooth;
 }
 
 .window-god-group {
@@ -464,6 +466,7 @@ main {
   width: 48px;
   height: 48px;
   margin-bottom: 10px;
+  image-rendering: smooth;
 }
 
 .link-spanner {
@@ -507,6 +510,7 @@ main {
 .members-group img {
   width: 80px;
   height: 80px;
+  image-rendering: smooth;
 }
 
 .members-group span {
