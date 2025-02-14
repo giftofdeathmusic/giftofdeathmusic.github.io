@@ -341,8 +341,7 @@ main {
 
 .window-drag-decoration img {
   width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: inherit;
   height: -webkit-fill-available;
 }
 
