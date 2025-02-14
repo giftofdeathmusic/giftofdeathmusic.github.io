@@ -75,8 +75,7 @@
 					<span>the page you're looking for doesn't exist :(</span>
 					<span>Let's go home?</span>
 					<div id="apology-decision">
-						<span>YES</span>
-						<span>NO</span>
+						<button onmousedown="apologyButton()">Ok!</button>
 					</div>
 				</div>
 			</div>
@@ -96,7 +95,7 @@
 			<div class="window-content">
 				<div id="window-wallpapers-content">
 					<div id="wallpaper-preview">
-						<img id="wallpaper-preview-img" src="/images/wallpaper-preview/street.jpg">
+						<img id="wallpaper-preview-img" src="/images/wallpaper-preview/error.jpg">
 					</div>
 					<ul class="wallpaper-list">
 						<li class="wallpaper-option" onmousedown="changeWallpaperPreviewStreet()">Street</li>
@@ -105,6 +104,7 @@
 						<li class="wallpaper-option" onmousedown="changeWallpaperPreviewBokeh()">Bokeh</li>
 						<li class="wallpaper-option" onmousedown="changeWallpaperPreviewBody()">Body</li>
 						<li class="wallpaper-option" onmousedown="changeWallpaperPreviewLovers()">Lovers</li>
+						<li class="wallpaper-option" onmousedown="changeWallpaperPreviewError()">Error</li>
 					</ul>
 					<div class="apply-wallpaper-btn-wrapper">
 						<button class="apply-wallpaper-btn" onmousedown="applyWallpaperChange()">Apply</button>

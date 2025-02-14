@@ -104,6 +104,7 @@ input:focus {
 button {
 	line-height: 1.2;
 	outline: none;
+	cursor: pointer;
 }
 
 button:active {
@@ -431,16 +432,11 @@ main {
 }
 
 #apology-decision {
-	margin: 20px 0;
-	font-variation-settings:
-		// <weight>: Use a value from 100 to 800
-		// <width>: Use a value from 75 to 112.5
-		"wght" 500,
-		"wdth" 100;
+	margin: 25px 0 15px 0;
 }
 
-#apology-decision span {
-	margin: 0 7px;
+#apology-decision button {
+	width: 40px;
 }
 
 
@@ -471,7 +467,7 @@ main {
 /* -- Wallpapers Window -- */
 
 #window-wallpapers {
-	width: 240px;
+	width: 220px;
 }
 
 #window-wallpapers-content {

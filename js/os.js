@@ -157,7 +157,7 @@ function makeDraggableMain() {
 	makeDraggable(document.getElementById("window-welcome"));
 	makeDraggable(document.getElementById("window-members"));
 	makeDraggable(document.getElementById("window-god"));
-	
+
 	makeDraggable(document.getElementById("window-wallpapers"));
 	makeDraggable(document.getElementById("window-cheat-code"));
 	makeDraggable(document.getElementById("window-about"));
@@ -169,6 +169,8 @@ function makeDraggable404() {
 	makeDraggable(document.getElementById("window-wallpapers"));
 	makeDraggable(document.getElementById("window-cheat-code"));
 	makeDraggable(document.getElementById("window-about"));
+
+	changeDefaultWallpaper404();
 }
 
 
@@ -349,6 +351,11 @@ let wallpaperCount = 1;
 let headerDIV = document.getElementById("header");
 let desktopIconGroup = document.getElementById("desktop-icons");
 
+function changeDefaultWallpaper404() {
+    wallpaperPreviewImg.src = '/images/wallpaper-preview/error.jpg';
+	wallpaperCount = 7;
+}
+
 function changeWallpaperPreviewStreet() {
     wallpaperPreviewImg.src = '/images/wallpaper-preview/street.jpg';
 	wallpaperCount = 1;
@@ -377,6 +384,11 @@ function changeWallpaperPreviewBody() {
 function changeWallpaperPreviewLovers() {
     wallpaperPreviewImg.src = '/images/wallpaper-preview/lovers.jpg';
 	wallpaperCount = 6;
+}
+
+function changeWallpaperPreviewError() {
+    wallpaperPreviewImg.src = '/images/wallpaper-preview/error.jpg';
+	wallpaperCount = 7;
 }
 
 function applyWallpaperChange() {
@@ -451,6 +463,18 @@ function applyWallpaperChange() {
 			desktopIconGroup.classList.remove("text-black");
 		}
 	}
+
+	if (wallpaperCount == 7) {
+		wallpaperVideo.src = '/videos/error.mp4';
+
+		headerDIV.classList.remove('header-white');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-difference');
+
+		if (desktopIconGroup.classList.contains('text-black')) {
+			desktopIconGroup.classList.remove("text-black");
+		}
+	}
 }
 
 
@@ -499,4 +523,10 @@ function openMemberJayPyro() {
 
 function openMemberSteve() {
 	window.open("https://giftofdeathmusic.com/steve","_self")
+}
+
+
+//Apology Decision
+function apologyButton() {
+	window.open("https://giftofdeathmusic.com/","_self")
 }
