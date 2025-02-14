@@ -138,7 +138,7 @@ function selectIconApology() {
 }
 
 function selectIconMainPage() {
-	window.open("https://giftofdeathmusic.com/","_self")
+	window.open("https://giftofdeathmusic.com/","_self");
 }
 
 
@@ -454,4 +454,36 @@ function godOpenSpotify() {
 
 function godOpenAmazonMusic() {
 	window.open("https://amazon.com/music/player/albums/B0D79HXT2V?marketplaceId=ATVPDKIKX0DER&musicTerritory=US");
+}
+
+
+
+
+// Open Member Links
+function openMemberLeo() {
+	window.open("https://giftofdeathmusic.com/leo","_self")
+}
+
+function openMemberTmac() {
+	window.open("https://giftofdeathmusic.com/tmac","_self")
+}
+
+function openMemberSrch() {
+	window.open("https://giftofdeathmusic.com/srch","_self")
+}
+
+function openMemberFrankk() {
+	window.open("https://giftofdeathmusic.com/frankk","_self")
+}
+
+function openMemberAdel() {
+	window.open("https://giftofdeathmusic.com/adel","_self")
+}
+
+function openMemberJayPyro() {
+	window.open("https://giftofdeathmusic.com/jaypyro","_self")
+}
+
+function openMemberSteve() {
+	window.open("https://giftofdeathmusic.com/steve","_self")
 }
