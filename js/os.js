@@ -157,6 +157,7 @@ function makeDraggableMain() {
 	makeDraggable(document.getElementById("window-welcome"));
 	makeDraggable(document.getElementById("window-members"));
 	makeDraggable(document.getElementById("window-god"));
+	
 	makeDraggable(document.getElementById("window-wallpapers"));
 	makeDraggable(document.getElementById("window-cheat-code"));
 	makeDraggable(document.getElementById("window-about"));
@@ -164,6 +165,10 @@ function makeDraggableMain() {
 
 function makeDraggable404() {
 	makeDraggable(document.getElementById("window-apology"));
+
+	makeDraggable(document.getElementById("window-wallpapers"));
+	makeDraggable(document.getElementById("window-cheat-code"));
+	makeDraggable(document.getElementById("window-about"));
 }
 
 
