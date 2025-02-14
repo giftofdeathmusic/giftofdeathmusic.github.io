@@ -153,13 +153,13 @@ function selectIconMainPage() {
 
 
 // DECLARE DRAGGABLE WINDOWS
+makeDraggable(document.getElementById("window-apology"));
 makeDraggable(document.getElementById("window-welcome"));
 makeDraggable(document.getElementById("window-members"));
 makeDraggable(document.getElementById("window-god"));
 makeDraggable(document.getElementById("window-wallpapers"));
 makeDraggable(document.getElementById("window-cheat-code"));
 makeDraggable(document.getElementById("window-about"));
-makeDraggable(document.getElementById("window-apology"));
 
 
 
@@ -444,6 +444,10 @@ function applyWallpaperChange() {
 	}
 }
 
+
+
+
+// Open G.O.D Album Links
 function godOpenAppleMusic() {
 	window.open("https://music.apple.com/us/album/g-o-d/1752718743");
 }
