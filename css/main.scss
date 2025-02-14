@@ -400,10 +400,16 @@ main {
 /* -- 404 Apology Window -- */
 
 #window-apology {
-	width: 400px;
+	width: 200px;
 	top: 45%;
 	left: 50%;
-	white-space: nowrap;
+}
+
+#window-apology .window-content {
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+	text-align: center;
 }
 
 #apology-img {
@@ -413,7 +419,28 @@ main {
 }
 
 #apology-txt {
-	padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+	padding: 20px 20px 15px 20px;
+	width: 190px;
+	line-height: 1.5;
+}
+
+#apology-txt span {
+	margin: 10px 0;
+}
+
+#apology-decision {
+	margin: 20px 0;
+	font-variation-settings:
+		// <weight>: Use a value from 100 to 800
+		// <width>: Use a value from 75 to 112.5
+		"wght" 500,
+		"wdth" 100;
+}
+
+#apology-decision span {
+	margin: 0 7px;
 }
 
 
