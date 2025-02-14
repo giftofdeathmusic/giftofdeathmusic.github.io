@@ -127,6 +127,19 @@ function selectIconGOD() {
 	}
 	windowGOD.parentNode.appendChild(windowGOD);
 }
+function selectIconApology() {
+	let windowApology = document.getElementById("window-apology");
+	if (!windowApology.classList.contains('display-block')) {
+		windowApology.style.top = "45%";
+		windowApology.style.left = "50%";
+		windowApology.classList.toggle("display-block");
+	}
+	windowWelcome.parentNode.appendChild(windowWelcome);
+}
+
+function selectIconMainPage() {
+	window.open("https://giftofdeathmusic.com/","_self")
+}
 
 
 
@@ -146,6 +159,7 @@ makeDraggable(document.getElementById("window-god"));
 makeDraggable(document.getElementById("window-wallpapers"));
 makeDraggable(document.getElementById("window-cheat-code"));
 makeDraggable(document.getElementById("window-about"));
+makeDraggable(document.getElementById("window-apology"));
 
 
 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>G.O.D. MUSIC</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="icon" type="image/png" href="/32x32.png" sizes="32x32" media="(prefers-color-scheme: light)"/>
+	<link rel="icon" type="image/png" href="/32x32-dark.png" sizes="32x32" media="(prefers-color-scheme: dark)"/>
+	<link rel="icon" type="image/png" href="/16x16.png" sizes="16x16" media="(prefers-color-scheme: light)"/>
+	<link rel="icon" type="image/png" href="/16x16-dark.png" sizes="16x16" media="(prefers-color-scheme: dark)"/>
+	<link rel="icon" type="image/png" href="/48x48.png" sizes="48x48" media="(prefers-color-scheme: light)"/>
+	<link rel="icon" type="image/png" href="/48x48-dark.png" sizes="48x48" media="(prefers-color-scheme: dark)"/>
+	<link rel="icon" type="image/png" href="/96x96.png" sizes="96x96" media="(prefers-color-scheme: light)"/>
+	<link rel="icon" type="image/png" href="/96x96-dark.png" sizes="96x96" media="(prefers-color-scheme: dark)"/>
+	<link rel="icon" type="image/png" href="/192x192.png" sizes="192x192" media="(prefers-color-scheme: light)"/>
+	<link rel="icon" type="image/png" href="/192x192-dark.png" sizes="192x192" media="(prefers-color-scheme: dark)"/>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="Gift of Death" />
+	<link rel="manifest" href="/site.webmanifest" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap">
+	<script type="text/javascript" src="/js/moment.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+	<div id="wallpaper-noise-container">
+		<div id="wallpaper-noise"></div>
+	</div>
+
+	<div id="wallpaper-video-container">
+		<video id="wallpaper-video" disablePictureInPicture playsinline autoplay loop muted preload="metadata" crossorigin="anonymous">
+			<source type="video/mp4" src="/videos/street.mp4">
+		</video>
+	</div>
+
+	<header id="header" class="header-difference">
+
+		<div id="header-dropdown-btn" class="dropdown-btn header-border-right" onclick="openHeaderDropdown()">
+			<img src="/images/ui/header_logo.png" alt="GOD logo" class="header-dropdown-btn-logo" draggable="false">
+			<img src="/images/ui/arrow.png" alt="dropdown arrow" class="header-dropdown-btn-arrow" draggable="false">
+		</div>
+
+		<div id="header-whitespace" class="header-border-right"></div>
+
+		<div id="header-timedate">
+			<span class="header-timedate-item header-border-right" id="header-date">Tues Jun 6 2006</span>
+			<span class="header-timedate-item" id="header-time">6:66 AM</span>
+		</div>
+
+	</header>
+
+	<div id="header-dropdown-content" class="dropdown-content text-black">
+		<span onclick="openWindowWallpapers()">Wallpapers</span>
+		<span onclick="openWindowCheatCode()">Cheat Code Entry</span>
+		<span onclick="openWindowAbout()">About</span>
+	</div>
+
+	<main id="main">
+
+		<div class="window text-black display-block" id="window-apology">
+
+			<div class="window-header">
+				<div class="window-close" onclick="closeWindow(event)">[X]</div>
+				<div class="window-drag-area window-drag-decoration"><img src="/images/ui/drag-area.png" draggable="false"></div>
+				<span class="window-drag-area">Apology :(</span>
+			</div>
+
+			<div class="window-content">
+				<img id="apology-img" src="/images/window-images/welcome.jpg" draggable="false">
+				<div id="apology-txt">it's nice having you here :)</div>
+			</div>
+
+		</div>
+
+
+
+		<div id="desktop-icons">
+
+			<div class="desktop-icon-group" id="icon-main-page" onclick="selectIconMainPage()">
+				<img src="/images/desktop-icons/welcome.png" draggable="false">
+				<span class="desktop-icon-text">Main Page</span>
+			</div>
+
+			<div class="desktop-icon-group" id="icon-apology" onclick="selectIconApology()">
+				<img src="/images/desktop-icons/god-cover.png" draggable="false">
+				<span class="desktop-icon-text">Apology</span>
+			</div>
+
+		</div>
+
+	</main>
+
+	<div id="unfinished-text">
+		<span>This website is unfinished.</span>
+	</div>
+
+	<script type="text/javascript" src="/js/os.js"></script>
+</body>
+</html>

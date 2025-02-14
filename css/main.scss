@@ -397,6 +397,28 @@ main {
 
 /* ------------- Individual Window CSS ------------- */
 
+/* -- 404 Apology Window -- */
+
+#window-apology {
+	width: 400px;
+	top: 45%;
+	left: 50%;
+	white-space: nowrap;
+}
+
+#apology-img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+#apology-txt {
+	padding: 10px 8px;
+}
+
+
+
+
 /* -- Welcome Window -- */
 
 #window-welcome {
