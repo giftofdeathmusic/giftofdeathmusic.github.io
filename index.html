@@ -98,6 +98,7 @@
 						<li class="wallpaper-option" onmousedown="changeWallpaperPreviewBokeh()">Bokeh</li>
 						<li class="wallpaper-option" onmousedown="changeWallpaperPreviewBody()">Body</li>
 						<li class="wallpaper-option" onmousedown="changeWallpaperPreviewLovers()">Lovers</li>
+						<li class="wallpaper-option display-none" id="error-option" onmousedown="changeWallpaperPreviewError()">Error</li>
 					</ul>
 					<div class="apply-wallpaper-btn-wrapper">
 						<button class="apply-wallpaper-btn" onmousedown="applyWallpaperChange()">Apply</button>
@@ -119,6 +120,7 @@
 
 			<div class="window-content">
 				<div id="window-cheat-code-content">
+					<span id="cheat-code-feedback" class="display-none"></span>
 					<input type="text" id="cheat-code-entry-input" autocomplete="off">
 					<button onmousedown="cheatCodeEntered()">Enter</button>
 				</div>

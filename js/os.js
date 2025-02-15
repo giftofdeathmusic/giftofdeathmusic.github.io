@@ -480,6 +480,42 @@ function applyWallpaperChange() {
 
 
 
+// Cheat Code Entry
+
+let errorOption = document.getElementById('error-option');
+let cheatCodeFeedback = document.getElementById('cheat-code-feedback');
+
+function cheatCodeEntered() {
+	let cheatCodeEntryInput = document.getElementById('cheat-code-entry-input').value;
+
+	cheatCodeFeedback.classList.remove('display-none');
+
+	if (cheatCodeEntryInput == "error") {
+		cheatCodeFeedback.innerHTML = 'You unlocked the 404 page wallpaper!';
+
+		errorOption.classList.remove('display-none');
+		wallpaperVideo.src = '/videos/error.mp4';
+
+		headerDIV.classList.remove('header-white');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-difference');
+
+		if (desktopIconGroup.classList.contains('text-black')) {
+			desktopIconGroup.classList.remove("text-black");
+		}
+	}
+	else if (cheatCodeEntryInput == "hmmm") {
+		cheatCodeFeedback.innerHTML = 'just testing things lol';
+		
+	}
+	else {
+		cheatCodeFeedback.innerHTML = 'Nothing happened, sorry';
+	}
+}
+
+
+
+
 // Open G.O.D Album Links
 function godOpenAppleMusic() {
 	window.open("https://music.apple.com/us/album/g-o-d/1752718743");

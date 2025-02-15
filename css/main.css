@@ -618,6 +618,10 @@ main {
   display: inline-block;
 }
 
+.display-none {
+  display: none;
+}
+
 /* ------------ MOBILE ------------ */
 @media (max-width: 35em) {
   /* -- Welcome Window -- */
