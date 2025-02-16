@@ -351,6 +351,8 @@ let wallpaperCount = 1;
 let headerDIV = document.getElementById("header");
 let desktopIconGroup = document.getElementById("desktop-icons");
 
+let cheatCodeDifference = false;
+
 function changeDefaultWallpaper404() {
     wallpaperPreviewImg.src = '/images/wallpaper-preview/error.jpg';
 	wallpaperCount = 7;
@@ -395,9 +397,11 @@ function applyWallpaperChange() {
 	if (wallpaperCount == 1) {
 		wallpaperVideo.src = '/videos/street.mp4';
 
-		headerDIV.classList.remove('header-white');
-		headerDIV.classList.remove('header-black');
-		headerDIV.classList.add('header-difference');
+		if (cheatCodeDifference == false) {
+			headerDIV.classList.remove('header-white');
+			headerDIV.classList.remove('header-black');
+			headerDIV.classList.add('header-difference');
+		}
 
 		if (desktopIconGroup.classList.contains('text-black')) {
 			desktopIconGroup.classList.remove("text-black");
@@ -407,9 +411,11 @@ function applyWallpaperChange() {
 	if (wallpaperCount == 2) {
 		wallpaperVideo.src = '/videos/ambient.mp4';
 
-		headerDIV.classList.remove('header-white');
-		headerDIV.classList.remove('header-black');
-		headerDIV.classList.add('header-difference');
+		if (cheatCodeDifference == false) {
+			headerDIV.classList.remove('header-white');
+			headerDIV.classList.remove('header-black');
+			headerDIV.classList.add('header-difference');
+		}
 
 		if (desktopIconGroup.classList.contains('text-black')) {
 			desktopIconGroup.classList.remove("text-black");
@@ -419,9 +425,11 @@ function applyWallpaperChange() {
 	if (wallpaperCount == 3) {
 		wallpaperVideo.src = '/videos/jellyfish.mp4';
 
-		headerDIV.classList.remove('header-difference');
-		headerDIV.classList.remove('header-black');
-		headerDIV.classList.add('header-white');
+		if (cheatCodeDifference == false) {
+			headerDIV.classList.remove('header-difference');
+			headerDIV.classList.remove('header-black');
+			headerDIV.classList.add('header-white');
+		}
 
 		if (desktopIconGroup.classList.contains('text-black')) {
 			desktopIconGroup.classList.remove("text-black");
@@ -431,9 +439,11 @@ function applyWallpaperChange() {
 	if (wallpaperCount == 4) {
 		wallpaperVideo.src = '/videos/bokeh.mp4';
 
-		headerDIV.classList.remove('header-white');
-		headerDIV.classList.remove('header-black');
-		headerDIV.classList.add('header-difference');
+		if (cheatCodeDifference == false) {
+			headerDIV.classList.remove('header-white');
+			headerDIV.classList.remove('header-black');
+			headerDIV.classList.add('header-difference');
+		}
 
 		if (desktopIconGroup.classList.contains('text-black')) {
 			desktopIconGroup.classList.remove("text-black");
@@ -443,9 +453,11 @@ function applyWallpaperChange() {
 	if (wallpaperCount == 5) {
 		wallpaperVideo.src = '/videos/body.mp4';
 
-		headerDIV.classList.remove('header-white');
-		headerDIV.classList.remove('header-black');
-		headerDIV.classList.add('header-difference');
+		if (cheatCodeDifference == false) {
+			headerDIV.classList.remove('header-white');
+			headerDIV.classList.remove('header-black');
+			headerDIV.classList.add('header-difference');
+		}
 
 		if (!desktopIconGroup.classList.contains('text-black')) {
 			desktopIconGroup.classList.add("text-black");
@@ -455,9 +467,11 @@ function applyWallpaperChange() {
 	if (wallpaperCount == 6) {
 		wallpaperVideo.src = '/videos/lovers.mp4';
 
-		headerDIV.classList.remove('header-difference');
-		headerDIV.classList.remove('header-black');
-		headerDIV.classList.add('header-white');
+		if (cheatCodeDifference == false) {
+			headerDIV.classList.remove('header-difference');
+			headerDIV.classList.remove('header-black');
+			headerDIV.classList.add('header-white');
+		}
 
 		if (desktopIconGroup.classList.contains('text-black')) {
 			desktopIconGroup.classList.remove("text-black");
@@ -467,9 +481,11 @@ function applyWallpaperChange() {
 	if (wallpaperCount == 7) {
 		wallpaperVideo.src = '/videos/error.mp4';
 
-		headerDIV.classList.remove('header-white');
-		headerDIV.classList.remove('header-black');
-		headerDIV.classList.add('header-difference');
+		if (cheatCodeDifference == false) {
+			headerDIV.classList.remove('header-white');
+			headerDIV.classList.remove('header-black');
+			headerDIV.classList.add('header-difference');
+		}
 
 		if (desktopIconGroup.classList.contains('text-black')) {
 			desktopIconGroup.classList.remove("text-black");
@@ -489,9 +505,11 @@ function cheatCodeEntered() {
 	let cheatCodeEntryInput = document.getElementById('cheat-code-entry-input').value;
 
 	cheatCodeFeedback.classList.remove('display-none');
+	cheatCodeFeedback.classList.add('display-block');
 
 	if (cheatCodeEntryInput == "error") {
 		cheatCodeFeedback.innerHTML = 'You unlocked the 404 page wallpaper!';
+		cheatCodeFeedback.style.color = 'rgb(0 88 30)';
 
 		errorOption.classList.remove('display-none');
 		wallpaperVideo.src = '/videos/error.mp4';
@@ -504,12 +522,21 @@ function cheatCodeEntered() {
 			desktopIconGroup.classList.remove("text-black");
 		}
 	}
-	else if (cheatCodeEntryInput == "hmmm") {
-		cheatCodeFeedback.innerHTML = 'just testing things lol';
-		
+
+	else if (cheatCodeEntryInput == "difference") {
+		document.getElementById("main").style.mixBlendMode = 'difference';
+		document.getElementById("header-dropdown-content").style.mixBlendMode = 'difference';
+
+		cheatCodeDifference = true;
+
+		headerDIV.classList.remove('header-white');
+		headerDIV.classList.remove('header-black');
+		headerDIV.classList.add('header-difference');
 	}
+
 	else {
-		cheatCodeFeedback.innerHTML = 'Nothing happened, sorry';
+		cheatCodeFeedback.innerHTML = 'Nothing happened, sorry :/';
+		cheatCodeFeedback.style.color = 'rgb(121 0 0)';
 	}
 }
 
