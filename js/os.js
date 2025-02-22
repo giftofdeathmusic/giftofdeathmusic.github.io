@@ -137,9 +137,9 @@ function selectIconApology() {
 	windowWelcome.parentNode.appendChild(windowWelcome);
 }
 
-function selectIconMainPage() {
-	window.open("https://giftofdeathmusic.com/","_self");
-}
+// function selectIconMainPage() {
+// 	window.open("https://giftofdeathmusic.com/","_self");
+// }
 
 
 
